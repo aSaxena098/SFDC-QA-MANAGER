@@ -1,0 +1,21 @@
+<aura:component implements="lightning:appHomeTemplate" description="3 columns flexible without header and footer."
+   access="global">
+   <aura:attribute name="left" type="Aura.Component[]" description="Column1" access="global" />
+   <aura:attribute name="center" type="Aura.Component[]" description="Column2" access="global" />
+   <aura:attribute name="right" type="Aura.Component[]" description="Column3" access="global" />
+
+   <div aura:id="container">
+      <!-- Specify the area for each column -->
+      <lightning:layout>
+         <lightning:layoutItem size="2" aura:id="left-column" padding="around-small">
+            {!v.left}
+         </lightning:layoutItem>
+         <lightning:layoutItem size="7" aura:id="center" padding="around-small">
+            {!v.center}
+         </lightning:layoutItem>
+         <lightning:layoutItem size="3" aura:id="right-column" padding="around-small">
+            {!v.right}
+         </lightning:layoutItem>
+      </lightning:layout>
+   </div>
+</aura:component>

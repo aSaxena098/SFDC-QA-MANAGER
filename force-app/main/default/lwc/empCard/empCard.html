@@ -1,0 +1,39 @@
+<template>
+   <lightning-card variant="Narrow" title={name} icon-name="standard:employee_contact">
+      <div style="background-color: lightgrey;">
+         <img class="slds-align_absolute-center slds-var-p-around_small" src={empImage} alt="Image of the Emloyee"
+            style="height: 253px; width:251px;border-radius: 97px" />
+      </div>
+
+      <div>
+         <lightning-record-view-form onload={recordFormLoaded} record-id={recordId} object-api-name="Employee__c">
+            <div class="slds-box slds-theme_default">
+               <lightning-output-field field-name={empId}></lightning-output-field>
+               <lightning-output-field field-name={testingType}></lightning-output-field>
+
+               <p class="slds-var-p-horizontal_small" style="background-color: lightgrey;">
+                  <strong>N+1/Supervisor</strong>
+               </p>
+               <lightning-output-field field-name={n_1}></lightning-output-field>
+               <lightning-output-field field-name={supervisor}></lightning-output-field>
+
+
+               <p class="slds-var-p-horizontal_small" style="background-color: lightgrey;"><strong>Contact
+                     Details</strong></p>
+               <div class="slds-grid">
+                  <div class="slds-col">
+                     <lightning-output-field field-name={baseLocation}></lightning-output-field>
+                     <lightning-output-field field-name={emailId}></lightning-output-field>
+                  </div>
+                  <div class="slds-col">
+                     <lightning-output-field field-name={phoneNumber}></lightning-output-field>
+                  </div>
+               </div>
+
+            </div>
+         </lightning-record-view-form>
+      </div>
+      <lightning-button variant="destructive" label="Other Details" title="Destructive action" onclick={naviagteToRecordPage} class="slds-m-left_x-small slds-var-m-vertical_small"></lightning-button>
+
+   </lightning-card>
+</template>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>This is used to transfer the data from emp filter to emp list component.</description>
+    <isExposed>false</isExposed>
+    <lightningMessageFields>
+        <description>This is change in the record ID of the employee</description>
+        <fieldName>recordIdData</fieldName>
+    </lightningMessageFields>
+    <masterLabel>EmployeeRecordID</masterLabel>
+</LightningMessageChannel>

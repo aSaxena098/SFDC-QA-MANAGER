@@ -1,0 +1,31 @@
+<template>
+   <lightning-card title="Filters" icon-name="standard:filter_criteria">
+      <div class="slds-var-p-around_medium">
+         <lightning-input type="search" label="Employee Name" placeholder="Enter the Name..."
+            onkeyup={serachEmpNameHandler}>
+         </lightning-input>
+      </div>
+      <h2 class="slds-var-p-around_medium">Employee Grade</h2>
+      <div class="slds-var-p-horizontal_small">
+         <template if:true={gradeList.data}>
+            <template for:each={gradeList.data.values} for:item="gradeList">
+               <lightning-input key={gradeList.value} data-name="gradeList" data-value={gradeList.value} type="checkbox"
+                  label={gradeList.label} checked onchange={handleCheckBox}>
+               </lightning-input>
+            </template>
+         </template>
+      </div>
+
+      <h2 class="slds-var-p-around_medium">Testing Type</h2>
+      <div class="slds-var-p-horizontal_small">
+         <template if:true={testingTypeList.data}>
+            <template for:each={testingTypeList.data.values} for:item="testingTypeList">
+               <lightning-input key={testingTypeList.value} data-name="testingTypeList"
+                  data-value={testingTypeList.value} type="checkbox" label={testingTypeList.label} checked
+                  onchange={handleCheckBox}>
+               </lightning-input>
+            </template>
+         </template>
+      </div>
+   </lightning-card>
+</template>

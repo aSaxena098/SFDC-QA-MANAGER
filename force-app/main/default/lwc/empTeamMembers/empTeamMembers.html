@@ -1,0 +1,26 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Team Members" icon-name="standard:service_crew_member">
+        <template if:false={teamMembersData}>
+            <p class="slds-var-p-around_medium">No Team Members Found</p>
+        </template>
+        
+        <template if:true={teamMembersData}>
+            <template for:each={teamMembersData} for:item="members">
+                <div key={members.Id} class="slds-var-p-around_medium">
+                    <div class="slds-grid">
+                        <div class="slds-col">
+                            <img src={members.Employee_Image__c} style="height:200px; width:200px" alt="Image of the team Members"/>
+                        </div>
+                        <div class="slds-col">
+                            <p><strong>Name:</strong> {members.Name}</p>
+                            <p><strong>Grade:</strong> {members.Grade__c}</p>
+                            <div class="slds-var-p-around_medium">
+                                <button type="submit" class="recordDetailButton slds-button slds-button_brand" data-value={members.Id} onclick={handleTeamMembersDetails}>Record Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

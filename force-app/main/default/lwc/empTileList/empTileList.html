@@ -1,0 +1,17 @@
+<template>
+   <lightning-card variant="Narrow" title="SFDC QA Team" icon-name="standard:team_member">
+      <div style="background-color: ghostwhite" class="slds-var-p-around_medium slds-grid slds-wrap">
+         <template for:each={empList} for:item="empRecord">
+            <div key={empRecord.Id}>
+               <div class="slds-col slds-var-p-vertical_x-large slds-var-p-horizontal_xx-large">
+                  <img class="empcard" style="height: 172px; width:168px; border-radius:20%; cursor:pointer"
+                     src={empRecord.Employee_Image__c} alt="Image of the Employee" data-value={empRecord.Id}
+                     onclick={handleClickOnEmpCard} />
+                  <p class="slds-align_absolute-center"><strong>{empRecord.Name}</strong></p>
+                  <p class="slds-align_absolute-center"><strong>Grade: {empRecord.Grade__c}</strong></p>
+               </div>
+            </div>
+         </template>
+      </div>
+   </lightning-card>
+</template>

@@ -1,0 +1,58 @@
+<!-- sldsValidatorIgnore -->
+<template>
+   <lightning-card variant="Narrow" title="BTO Tracker" icon-name="utility:table">
+      <div class="slds-var-m-left_medium slds-var-m-right_medium slds-var-m-top_medium" style="display: flex;
+      justify-content: space-between;">
+         <lightning-input class="" type="search" variant="label-hidden" placeholder="Enter the text...."
+            onkeypress={searchHandler}>
+         </lightning-input>
+         <div>
+            <!-- <lightning-button class="slds-var-p-right_small" variant="outline-brand" label="Send Mail" -->
+            <!-- title="Destructive action" onclick={mailHandler}></lightning-button> -->
+            <lightning-button class="slds-var-p-right_small" variant="destructive" label="Export"
+               title="Destructive action" onclick={exportHandler}></lightning-button>
+            <lightning-button class="" variant="brand" label="Refresh" title="Destructive action"
+               onclick={refreshHandler}>
+            </lightning-button>
+         </div>
+
+      </div>
+      <div class="slds-var-p-around_medium">
+         <lightning-datatable key-field="Id" data={filteredRecords} columns={columns} onsave={saveDraftValuesHandler}
+            draft-values={draftValues} hide-checkbox-column>
+         </lightning-datatable>
+      </div>
+      <div class="slds-var-p-around_medium" style="display: flex; justify-content:space-around">
+         <lightning-button variant="text-destructive" label="<" title="titleName" onclick={handlePreviousPageHandler}>
+         </lightning-button>
+         <p>Page {currentpage} of {totalPages}</p>
+         <lightning-button variant="text-destructive" label=">" title="titleName" onclick={handleNextPageHandler}>
+         </lightning-button>
+      </div>
+      <div>
+         <lightning-icon style="cursor: pointer;" icon-name='utility:delete' alternative-text='Clear BTO Data'
+            size='small' title='Clear BTO Data' onclick={deleteBTODaysHandler}>
+         </lightning-icon>
+      </div>
+      <template if:true={showPopUp}>
+         <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+               <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+               </button>
+               <div class="slds-modal__header">
+                  <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Delete BTO Days</h1>
+               </div>
+               <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                  <p>Do you want to delete the BTO Days for all the SFDC QA Team Members?</p>
+               </div>
+               <div class="slds-modal__footer">
+                  <button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+                     onclick={closeDeletePopUp}>Cancel</button>
+                  <button class="slds-button slds-button_brand" onclick={okDeleteDays}>OK</button>
+               </div>
+            </div>
+         </section>
+      </template>
+   </lightning-card>
+</template>
