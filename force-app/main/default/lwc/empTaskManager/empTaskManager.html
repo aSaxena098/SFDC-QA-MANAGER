@@ -2,8 +2,13 @@
 <template>
     <div class="slds-var-p-around_small">
         <!-- Place your Task Datatable OverHere -->
-        <lightning-datatable key-field="Id" data={task} columns={columns} column-widths-mode="auto"
-            hide-checkbox-column>
+        <template if:true={isDataTableVisible}>
+            <lightning-datatable key-field="Id" data={task} columns={columns} column-widths-mode="auto"
+            hide-checkbox-column onrowaction={handleRowAction}>
         </lightning-datatable>
+        </template>
+        
+
+
     </div>
 </template>
