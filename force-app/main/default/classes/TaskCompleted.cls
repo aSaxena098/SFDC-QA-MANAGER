@@ -17,6 +17,7 @@ public with sharing class TaskCompleted {
         List<Task_Manager__c> updateEmpList = new List<Task_Manager__c>();
         for(Task_Manager__c task:emptaskList){
             task.Is_Completed__c=false;
+            task.Assigned_Date__c=system.today();
             task.Completed_On__c = null;
             updateEmpList.add(task);
         }
