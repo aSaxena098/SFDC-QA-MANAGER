@@ -6,7 +6,7 @@
 - Tracks the BTO (Back to Office) Days of the every employee.
 - Extract the Data from the BTO Datable using the Export button.
 - Email to inidivudual who are not fullfilling minimum requirements of BTO Days.
-- Emial to higher Authorites and Attach the reports of BTO.
+- Email to higher Authorites and Attach the reports of BTO.
 - Chatter to chat with different Employees 
 - Genarates Reports and Dashboards dynamically.
 - Task can be assigned and managed easily for every employee.
